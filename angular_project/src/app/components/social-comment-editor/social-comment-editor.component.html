@@ -1,0 +1,32 @@
+<div>
+    <form id="CommentEditor-Form" class="stretched-form-entry">
+        <mat-form-field class="stretched-form-entry" appearance="fill">
+            <mat-label>Comment</mat-label>
+            <textarea #CommentEditor_Text matInput rows="5"></textarea>
+        </mat-form-field>
+    </form>
+
+    <div id="CommentEditor-UploadedFilesList" class="upload-list" *ngIf="!isCommentEditor">
+        <div *ngFor="let image of selectedFilesPreview; index as i" class="uploadContainer">
+            <img [src]="image" class="uploadItem" />
+         </div>
+    </div>
+
+    <mat-card-actions>
+        <button mat-button id="CommentEditor-AddImages" (click)="CommentEditor_UploadFile.click()" *ngIf="!isCommentEditor">
+            <mat-icon>add_circle_outline</mat-icon>
+            <input #CommentEditor_UploadFile type="file" multiple accept="image/png, image/jpeg" (change)="selectFiles($event)" style="display:none;" />
+        </button>
+        
+        <!--<button mat-button  id="CommentEditor-AddVideo">
+            <mat-icon>video_library</mat-icon>
+        </button>-->
+
+        <button mat-button id="CommentEditor-SendBtn" (click)="submit()">
+            <mat-icon>send</mat-icon>
+        </button>
+    </mat-card-actions>
+    <mat-card-footer>
+        <mat-progress-bar *ngIf="isWorking" class="cardLoadingBar" mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+</div>

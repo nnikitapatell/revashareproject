@@ -1,0 +1,35 @@
+<mat-card class="centered-card-host">
+    <mat-card-content>
+        <img alt="Revashare" class="RevashareLogo" src="https://firebasestorage.googleapis.com/v0/b/project2-85159.appspot.com/o/assets%2FRevashare.png?alt=media&token=5711f8fa-ab58-46b0-9d16-489288cb0ef0">
+        <form>
+            <mat-form-field class="stretched-form-entry">
+                <mat-label>Username</mat-label>
+                <input matInput #CreateAccount_Username type="text" name="userName"/>
+            </mat-form-field>
+            <div class="horizontal-stack">
+                <mat-form-field class="stretched-form-entry">
+                    <mat-label>First Name</mat-label>
+                    <input matInput #CreateAccount_First type="text" name="firstName"/>
+                </mat-form-field>
+                <mat-form-field class="stretched-form-entry">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput #CreateAccount_Last type="text" name="lastName"/>
+                </mat-form-field>
+            </div>
+            <mat-form-field class="stretched-form-entry">
+                <mat-label>Email</mat-label>
+                <input matInput #CreateAccount_Email type="text" name="email"/>
+            </mat-form-field>
+            <mat-form-field class="stretched-form-entry">
+                <mat-label>Password</mat-label>
+                <input matInput #CreateAccount_Password type="password" name="password"/>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="attemptCreation()">CREATE ACCOUNT</button>
+    </mat-card-actions>
+    <mat-card-footer>
+        <mat-progress-bar *ngIf="isWorking" class="cardLoadingBar" mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+</mat-card>

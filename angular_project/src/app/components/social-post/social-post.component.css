@@ -1,0 +1,13 @@
+.comment-container-button {
+    text-align: center;
+    width: 100%;
+}
+
+.comment-container-button-container {
+    width: 75%;
+    margin: 10px auto;
+}
+
+.feed-spinner {
+    margin: 0px auto;
+}

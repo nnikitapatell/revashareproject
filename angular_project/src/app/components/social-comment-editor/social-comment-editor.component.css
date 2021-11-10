@@ -1,0 +1,28 @@
+.comment-editor-form-attachments {
+    position: relative;
+}
+
+#CommentEditor-SendBtn {
+    float: right;
+}
+
+#CommentEditor-SelectedTextOptions {
+    margin-left: 30px;
+}
+
+.upload-list {
+    display: flex;
+    height: 60px;
+}
+
+.uploadContainer {
+    width: 55px;
+    height: 55px;
+    margin: 5px 5px;
+    float: left;
+}
+
+.uploadItem {
+    width: 55px;
+    height: 55px;
+}

@@ -1,0 +1,26 @@
+<mat-card class="centered-card-host">
+    <mat-card-content>
+        <img alt="Revashare" class="RevashareLogo" src="https://firebasestorage.googleapis.com/v0/b/project2-85159.appspot.com/o/assets%2FRevashare.png?alt=media&token=5711f8fa-ab58-46b0-9d16-489288cb0ef0">
+        <form>
+            <mat-form-field class="stretched-form-entry">
+                <mat-label>Username</mat-label>
+                <input matInput #Login_UserName type="text" name="username"/>
+            </mat-form-field>
+            <div class="horizontal-stack">
+                <mat-form-field class="stretched-form-entry">
+                    <mat-label>Password</mat-label>
+                    <input matInput #Login_Password type="password" name="password"/>
+                </mat-form-field>
+                <button mat-icon-button (click)="forgotPassword()"><mat-icon>help_outline</mat-icon></button>
+            </div>
+
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="attemptLogin()">LOG IN</button>
+        <button mat-button (click)="createAccount()">SIGN UP</button>
+    </mat-card-actions>
+    <mat-card-footer>
+        <mat-progress-bar *ngIf="isWorking" class="cardLoadingBar" mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+</mat-card>

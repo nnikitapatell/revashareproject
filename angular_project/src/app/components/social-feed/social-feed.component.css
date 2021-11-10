@@ -1,0 +1,47 @@
+.app-toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.feed-spinner {
+    margin: 0px auto;
+}
+
+
+.app-toolbar {
+    position: fixed;
+    height: 60px;
+    z-index: 2147483647;
+}
+
+.post-button {
+    margin: 0;
+    top: auto;
+    right: 20px;
+    bottom: 20px;
+    left: auto;
+    position: fixed;
+    z-index: 2147483647;
+}
+
+.app-container {
+    padding-top: 60px;
+}
+
+.app-search-container {
+    display: flex;
+    width: 100%;
+}
+
+.app-container-button {
+    text-align: center;
+    width: 100%;
+}
+
+.app-container-button-container {
+    width: 75%;
+    margin: 10px auto;
+}
+
+.app-search-field {
+    width: 100%;
+}

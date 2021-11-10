@@ -1,0 +1,96 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+		<!--THIS SECTION OF THE CONFIGURATION YOU'VE ALREADY SEEN IN JDBC -->
+		<property name="hibernate.connection.username">postgres</property>
+		<property name="hibernate.connection.password">p4ssw0rd</property>
+
+		<!-- This is the formula for the postgres url: jdbc:postgresql://[hostname]/[databasename] 
+			jdbc:postgresql://[hostname]:[port]/[databasename] -->
+		<property name="hibernate.connection.url">
+			jdbc:postgresql://34.122.95.137:5432/project2
+		</property>
+		<property name="hibernate.connection.driver_class">
+			org.postgresql.Driver
+		</property>
+
+		<!-- THIS SECTON OF CONFIGURATION IS A BIT NEWER -->
+
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+
+		<!-- hbm2ddl.auto is a hibernate mapping to your ddl-schema. WHat are settings 
+			for hbm2ddl.auto? CREATE drops all existing tables (and other entities) with 
+			names you have provided in annotations then hibernate will create your schema 
+			from scratch. (THIS IS NOT PARTICULARLY GREAT FOR PRODUCTION!!! THIS is used 
+			for Dev purposes) VALIDATE hibernate checks to make sure the schema exists 
+			as expected before operating UPDATE hibernate will NOT delete anything, it'll 
+			only add/modify existing schema elements, so that the schema works with hibernate's 
+			schema CREATE-DROP hibernate will create your schema then delete it when 
+			the application ends NONE well...it means hibernate won't do anything to 
+			your schema automatically -->
+		<property name="hibernate.hbm2ddl.auto">create</property>
+
+		<!--HIbenrate ALSO has connection pooling. A method of speeding up database 
+			calls. HIbernate will create 20 connections to the database when it starts 
+			up and everytime you create a session, the session will "borrow" and active 
+			connection from the connection pool. When you close a session the connection 
+			doesn't close....it simply frees up for another session to use. This speeds 
+			up database interactions. (the default pool_size is 20, btw) lastly, the 
+			default connection pool in HIbernate is NOT meant for production applications. 
+			you'll want to search out a dependency that is more powerful than the built 
+			in connection pool. -->
+
+		 
+		 
+		 <!-- 
+		 	hbm2ddl.auto is a hibernate mapping to your ddl-schema.
+		 	
+		 	WHat are settings for hbm2ddl.auto?
+		 	
+		 	CREATE
+		 	drops all existing tables (and other entities) with names you have provided in annotations
+		 	then hibernate will create your schema from scratch.
+		 	(THIS IS NOT PARTICULARLY GREAT FOR PRODUCTION!!! THIS is used for Dev purposes)
+		 	
+		 	VALIDATE
+		 	hibernate checks to make sure the schema exists as expected before operating
+		 	
+		 	UPDATE
+		 	hibernate will NOT delete anything, it'll only add/modify existing schema elements, so that
+		 	the schema works with hibernate's schema
+		 	
+		 	CREATE-DROP
+		 	hibernate will create your schema then delete it when the application ends
+		 	
+		 	NONE
+		 	well...it means hibernate won't do anything to your schema automatically
+		  -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<!--HIbenrate ALSO has connection pooling.
+ 		A method of speeding up database calls.
+ 		HIbernate will create 20 connections to the database when it starts
+ 		up and everytime you create a session, the session will "borrow"
+ 		and active connection from the connection pool. When you close
+ 		a session the connection doesn't close....it simply frees up
+ 		for another session to use. This speeds up database interactions.
+ 		(the default pool_size is 20, btw)
+ 		lastly, the default connection pool in HIbernate is NOT meant for production applications.
+ 		you'll want to search out a dependency that is more powerful than the built in
+ 		connection pool.
+ 		  -->
+		<property name="hibernate.connection.pool_size">10</property>
+
+		<!-- NOW, LET'S LET HIBERNATE KNOW WHERE OUR MODELS ARE!!!! -->
+		<mapping class="model.User" />
+		<mapping class="model.Like" />
+		<mapping class="model.Post" />
+		<mapping class="model.Comment" />
+	</session-factory>
+
+</hibernate-configuration>

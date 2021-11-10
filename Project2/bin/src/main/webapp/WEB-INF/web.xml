@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>Project2</display-name>
+  
+  
+  <!-- In short, the web.xml is a file that describes how your application should be deployed
+  	We call this file the "deployment descriptor"; though we happen to name the file "web.xml".
+  	
+  	This file will be used to describe to tomcat HOW to deploy your project. So in a way, it's like
+  	tomcat's config file for YOUR project (turns out tomcat could have more than one project deployed on it, each
+  	with their own web.xml file)
+   -->
+  
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  
+  
+  <!-- THis context load listener will tie the lifecycle of spring to the lifecycle
+  of tomcat itself. In short, it's an event listener -->
+  <listener>
+  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  
+  <servlet>
+  	<!-- servlet-name is just creating a VARIABLE NAME for this servlet in the web.xml file -->
+  	<servlet-name>dispatcher</servlet-name>
+  	<!-- this is spring's already created servlet...
+  		it'll represent our front controller/master servlet -->
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- here we're referring to the variable name we created earlier -->
+  	<servlet-name>dispatcher</servlet-name>
+  	<!-- here we're giving a uri pattern to the targeted servlet -->
+  	<url-pattern>/api/*</url-pattern>
+  </servlet-mapping>
+</web-app>
